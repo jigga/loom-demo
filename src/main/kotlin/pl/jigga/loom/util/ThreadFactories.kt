@@ -17,26 +17,23 @@ fun newVirtualThreadFactory(): ThreadFactory {
 
 fun newVirtualThreadFactory(scheduler: Executor): ThreadFactory {
     return Thread.builder()
-            .virtual()
+            .virtual(scheduler)
             .name("virtual-thread-", 1)
-            .scheduler(scheduler)
             .factory()
 }
 
 fun newVirtualThreadFactory(scheduler: Executor, daemon: Boolean): ThreadFactory {
     return Thread.builder()
-            .virtual()
+            .virtual(scheduler)
             .name("virtual-thread-", 1)
-            .scheduler(scheduler)
             .daemon(daemon)
             .factory()
 }
 
 fun newVirtualThreadFactory(scheduler: Executor, threadLocalSupport: ThreadLocalSupport): ThreadFactory {
     val builder = Thread.builder()
-            .virtual()
+            .virtual(scheduler)
             .name("virtual-thread-", 1)
-            .scheduler(scheduler)
     when (threadLocalSupport) {
         ThreadLocalSupport.INHERIT -> builder.inheritThreadLocals()
         ThreadLocalSupport.DISALLOW -> builder.disallowThreadLocals()

@@ -23,6 +23,6 @@ fun main() {
     virtualThreadFactory.newThread(newGetURLContentTask(URL("http://localhost/delay/3"))).start()
     virtualThreadFactory.newThread(newGetURLContentTask(URL("http://localhost/delay/3"))).start()
 
-    shutdownAndAwaitTermination(scheduler, 1, TimeUnit.MINUTES)
+    shutdownAndAwaitTermination(scheduler, 5, TimeUnit.SECONDS)
 
 }

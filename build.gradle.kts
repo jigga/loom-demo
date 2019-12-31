@@ -36,3 +36,7 @@ tasks.withType<KotlinCompile> {
 		jvmTarget = "1.8"
 	}
 }
+
+tasks.getByName<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
+	mainClassName = "pl.jigga.loom.LoomDemoApplicationKt"
+}

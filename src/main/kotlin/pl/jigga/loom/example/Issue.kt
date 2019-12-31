@@ -12,8 +12,7 @@ fun main() {
 
     val scheduler = Executors.newSingleThreadExecutor()
     val virtualThreadFactory = Thread.builder()
-            .virtual()
-            .scheduler(scheduler)
+            .virtual(scheduler)
             .daemon(false)
             .name("virtual-thread-", 1)
             .factory()
